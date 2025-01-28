@@ -8,13 +8,13 @@ import { mathisB797 } from "./mathis797.mjs";
 
 
 // В модулния файл (option1.js)
-export function modMathis(partName, lValue, bValue, hValue) {
+export function modMathis(moduleName, partName, lValue, bValue, hValue) {
     const name = partName;
     const dimX = Number(lValue);
     const dimY = Number(bValue);
     const dimZ = Number(hValue)
     const cuttingTool = "E006";
-    const cutDepth = dimZ + 0.5;
+    const cutDepth = dimZ + 0.2;
     const minArea = 117000;
     let text = `SetMachiningParameters("AD", 1, 10, 983040, false);
 CreatePolyline("${name}", ${4}, ${dimY - dimY});
@@ -36,14 +36,8 @@ CreateContour("Perimeter Routing", ${dimX * dimY <= minArea ? cutDepth - 0.7 : c
 "${cuttingTool}", "-1", 0, -1, -1, -1, 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();
-CreateRawWorkpiece("${name}_${dimZ}",0.0000,0.0000,0.0000,0.0000,0.0000,0.0000);
-SetWorkpieceSetupPosition(0.0000, 0.0000, 0.0, 0.0);\n\n`
-text = text.split('\n').filter(line => line.trim() !== '').join('\n');
-text += `\n\ntry {
-CreateMacro("PYTHA_INIT_1", "PYTHA_INIT");
-}
-catch (System.Exception e) {}\n\n`
+ResetRetractStrategy();\n\n`
+//text = text.split('\n').filter(line => line.trim() !== '').join('\n');
 
     if (dimX > 296 && dimY > 296 && !name.includes("Blind_Part")) {
         if (dimY === 297) {
@@ -67,12 +61,9 @@ catch (System.Exception e) {}\n\n`
         } else if (dimY === 797) {
             text += mathisB797(lValue, bValue);
             return text;
+        } else {
+            alert(`На детайла ${partName} от модул ${moduleName} няма да бъде направена декоративната фрезовка.`)
         }
-    } else {
-        text += `try {
-     CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
     }
     return text;
 }

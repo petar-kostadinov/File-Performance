@@ -5,7 +5,7 @@ export function modSimon(partName, lValue, bValue, hValue) {
     const dimY = Number(bValue);
     const dimZ = Number(hValue)
     const cuttingTool = "E006";
-    const cutDepth = dimZ + 0.5;
+    const cutDepth = dimZ + 0.2;
     const minArea = 117000;
     return `SetMachiningParameters("AD", 1, 10, 983040, false);
 CreatePolyline("${name}", ${4}, ${dimY - dimY});
@@ -27,19 +27,7 @@ CreateContour("Perimeter Routing", ${dimX * dimY <= minArea ? cutDepth - 0.7 : c
 "${cuttingTool}", "-1", 0, -1, -1, -1, 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();
-CreateRawWorkpiece("${name}_${dimZ}",0.0000,0.0000,0.0000,0.0000,0.0000,0.0000);
-SetWorkpieceSetupPosition(0.0000, 0.0000, 0.0, 0.0);
-try {
-    CreateMacro("PYTHA_INIT_1", "PYTHA_INIT");
-}
-catch (System.Exception e) {}
-    
-
-try {
-    CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`.trim()
+ResetRetractStrategy();`.trim()
 }
 
 

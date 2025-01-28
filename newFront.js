@@ -26,13 +26,7 @@ CreateContour("Perimeter Routing", ${cutDepth}, 0, 1, "Workpiece contour", TypeO
 "${cuttingTool}", "-1", 0, -1, -1, -1, 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();
-CreateRawWorkpiece("${name}_${dimZ}",0.0000,0.0000,0.0000,0.0000,0.0000,0.0000);
-SetWorkpieceSetupPosition(0.0000, 0.0000, 0.0, 0.0);
-try {
-    CreateMacro("PYTHA_INIT_1", "PYTHA_INIT");
-}
-catch (System.Exception e) {}\n\n`
+ResetRetractStrategy();\n\n`
     if (dimX > 246 && dimY > 296 && !name.includes("Blind_Part")) {
         text += `SelectWorkplane("Top");
 CreatePolyline("", ${dimX / 2}, 70.0000);
@@ -47,11 +41,7 @@ ResetRetractStrategy();
 CreateRoughFinish("",${profileDepth},"",TypeOfProcess.GeneralRouting, "${profileTool}", "-1", 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();\n
-try {
-    CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
+ResetRetractStrategy();\n`
     }
     return text;
 }

@@ -6,7 +6,7 @@ export function modHanna(partName, lValue, bValue, hValue) {
     const cuttingTool = "E005";
     const firstProfileTool = "E033"
     const secondProfileTool = "E021"
-    const cutDepth = dimZ + 0.5;
+    const cutDepth = dimZ + 0.2;
     const profileDepth = 5.5;
     const minArea = 117000;
     let text = `SetMachiningParameters("AD", 1, 10, 983040, false);
@@ -29,16 +29,10 @@ CreateContour("Perimeter Routing", ${dimX * dimY <= minArea ? cutDepth - 0.7 : c
 "${cuttingTool}", "-1", 0, -1, -1, -1, 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();
-CreateRawWorkpiece("${name}_${dimZ}",0.0000,0.0000,0.0000,0.0000,0.0000,0.0000);
-SetWorkpieceSetupPosition(0.0000, 0.0000, 0.0, 0.0);
-try {
-    CreateMacro("PYTHA_INIT_1", "PYTHA_INIT");
-}
-catch (System.Exception e) {}\n\n\n`;
+ResetRetractStrategy();\n\n`;
+
     if (dimX > 246 && dimY > 296 && !name.includes("Blind_Part")) {
-        text += `SelectWorkplane("Top");
-CreatePolyline("", ${dimX / 2}, 70.0000);
+        text += `CreatePolyline("", ${dimX / 2}, 70.0000);
 AddSegmentToPolyline(${dimX - 70}, 70.0000);
 AddSegmentToPolyline(${dimX - 70}, ${dimY - 70});
 AddSegmentToPolyline(70, ${dimY - 70});
@@ -68,11 +62,7 @@ ResetRetractStrategy();
 CreateRoughFinish("",${profileDepth},"",TypeOfProcess.GeneralRouting, "${secondProfileTool}", "-1", 2);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();\n\n
-try {
-    CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
+ResetRetractStrategy();\n\n`
     }
     return text;
 }

@@ -3,8 +3,7 @@ export function mathisB497(lValue, bValue) {
     const dimY = Number(bValue);
     const profileTool = "E031";
     const profileDepth = 7.5;
-    let text = `SelectWorkplane("Top");
-CreatePolyline("", 115.9969, 80.0403);
+    let text = `CreatePolyline("", 115.9969, 80.0403);
 AddSegmentToPolyline(116.7610, 80.0000);
 AddSegmentToPolyline(${dimX - 80}, 80.0000);
 AddSegmentToPolyline(${dimX - 80}, ${dimY - 80});
@@ -80,10 +79,6 @@ SetCompensationMode(false);
 CreateRoughFinish("",${profileDepth},"",TypeOfProcess.GeneralRouting, "${profileTool}", "-1", 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();\n
-try {
-	CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
+ResetRetractStrategy();`
     return text;
 }
