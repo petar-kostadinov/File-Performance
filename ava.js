@@ -8,7 +8,7 @@ export function modAva(partName, lValue, bValue, hValue) {
     let remainder = dimY % border;
     const cuttingTool = "E005";
     const profileTool = "E021"
-    const cutDepth = dimZ + 0.5;
+    const cutDepth = dimZ + 0.2;
     const profileDepth = 3;
     let text = `SetMachiningParameters("AD", 1, 10, 983040, false);
 CreatePolyline("${name}", ${4}, ${dimY - dimY});
@@ -28,29 +28,21 @@ CreateContour("Perimeter Routing", ${cutDepth}, 0, 1, "Workpiece contour", TypeO
 "${cuttingTool}", "-1", 0, -1, -1, -1, 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();
-CreateRawWorkpiece("${name}_${dimZ}",0.0000,0.0000,0.0000,0.0000,0.0000,0.0000);
-SetWorkpieceSetupPosition(0.0000, 0.0000, 0.0, 0.0);
-try {
-    CreateMacro("PYTHA_INIT_1", "PYTHA_INIT");
-}
-catch (System.Exception e) {}\n\n\n`;
+ResetRetractStrategy();\n\n`;
 
 
     if (remainder < border) {
         numOfBorder--;
-        remainder = (remainder + border) / 2;
-        if (remainder < 40 || name.includes("Blind_Part") || dimY < border) {
-            text += `try {
-     CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
+        remainder = remainder < 48.5
+            ? (numOfBorder -= 1, (remainder + border * 2) / 2)
+            : (remainder + border) / 2;
+
+        if (name.includes("Blind_Part") || dimY < border) {
             return text;
         }
         let width = dimY - remainder;
         let offset = 50;
-        text += `SelectWorkplane("Top");
-CreatePolyline("${name}", ${-10}, ${remainder});
+        text += `CreatePolyline("${name}", ${-10}, ${remainder});
 AddSegmentToPolyline(${dimX + 10}, ${remainder});\n`
         for (let i = 0; i < numOfBorder; i += 2) {
             if (width > remainder) {
@@ -75,11 +67,7 @@ ResetRetractStrategy();
 CreateRoughFinish("",${profileDepth},"",TypeOfProcess.GeneralRouting, "${profileTool}", "-1", 0);
 ResetPneumaticHood();
 ResetApproachStrategy();
-ResetRetractStrategy();\n\n
-try {
-    CreateMacro("PYTHA_PARK_2", "PYTHA_PARK");
-}
-catch (System.Exception e) {}`
+ResetRetractStrategy();\n\n`
     }
     return text;
 }
