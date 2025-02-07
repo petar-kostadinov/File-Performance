@@ -552,11 +552,11 @@ th {
 #modal-title {
 	font-size: 18px;
 	margin-bottom: 10px;
-	
+}
 
 #ok-button {
 	color: #fff;
-	background-color: red;
+	background-color: #007bff;
 	border: none;
 	padding: 10px 20px;
 	margin-top: 20px;
