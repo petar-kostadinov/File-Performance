@@ -1,5 +1,5 @@
 import { showHomeView } from "./view/home.js";
-
+import { showGeneratorView } from "./view/generator.js";
 const { html, render } = window.litHtml;
 const page = window.page;
 const root = document.getElementById('app');
