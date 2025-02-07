@@ -1,4 +1,4 @@
-const { html, render } = window.litHtml;
+import { html, render } from "https://cdn.jsdelivr.net/npm/lit-html@2.5.0/lit-html.js";
 
 const homeTemp = () => html``
 
