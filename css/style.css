@@ -540,13 +540,9 @@ th {
 	padding: 20px;
 	border: 1px solid #888;
 	width: 500px;
-	/* Ширината на алерт прозореца */
 	height: auto;
-	/* Височината на алерт прозореца */
-	text-align: center;
-	/* Центрира съдържанието */
+        text-align: center;
 	border-radius: 10px;
-	/* Заобля ъглите на основния прозорец */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -556,8 +552,7 @@ th {
 #modal-title {
 	font-size: 18px;
 	margin-bottom: 10px;
-	/* Отстъп под заглавието */
-}
+	
 
 #ok-button {
 	color: #fff;
