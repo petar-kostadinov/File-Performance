@@ -9,8 +9,6 @@ export function showHomeView(ctx) {
     context.render(homeTemp());
     
        window.addEventListener('popstate', function () {
-        document.querySelectorAll('img').forEach(function(img) {
-            img.src = img.src.split('?')[0] + '?' + new Date().getTime();
-        });
-    });
+    location.reload();
+});
 }
