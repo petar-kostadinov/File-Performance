@@ -1,4 +1,3 @@
-import page from "https://cdn.jsdelivr.net/npm/page@1.11.6/page.mjs";
 import { showHomeView } from "./view/home.js";
 
 const { html, render } = window.litHtml;
