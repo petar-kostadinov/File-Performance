@@ -550,7 +550,7 @@ th {
 }
 
 #modal-title {
-	font-size: 10px;
+	font-size: 14px;
 	margin-bottom: 10px;
 	
 
@@ -560,11 +560,9 @@ th {
 	border: none;
 	padding: 10px 20px;
 	margin-top: 20px;
-	/* Премества бутона под текста */
 	cursor: pointer;
 	font-size: 16px;
 	border-radius: 15px;
-	/* Заобля ъглите на бутона */
 }
 
 #ok-button:hover {
