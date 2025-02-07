@@ -562,7 +562,7 @@ th {
 	margin-top: 20px;
 	cursor: pointer;
 	font-size: 16px;
-	border-radius: 15px;
+	border-radius: 10px;
 }
 
 #ok-button:hover {
