@@ -1,4 +1,4 @@
-import { html } from "../../node_modules/lit-html/lit-html.js";
+import { html } from "https://cdn.jsdelivr.net/npm/lit-html@2.7.0/lit-html.js";
 
 const homeTemp = () => html``
 
