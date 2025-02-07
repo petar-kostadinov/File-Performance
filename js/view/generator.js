@@ -10,31 +10,31 @@ const generatorTemp = () => html`
                     <div>
                       <input type="radio" id="option1" name="options" value="Simon">
                       <label for="option1"><img src="" alt="">Simon</label>
-                      <img class="radio-img" src="images/Simon.jpg" alt="">
+                      <img class="radio-img" src="/File-Performance/images/Simon.jpg" alt="">
                     </div>
 
                     <div>
                       <input type="radio" id="option2" name="options" value="Hanna">
                       <label for="option2">Hanna</label>
-                      <img class="radio-img" src="images/Hanna.jpg" alt="">
+                      <img class="radio-img" src="/File-Performance/images/Hanna.jpg" alt="">
                     </div>
 
                     <div>
                        <input type="radio" id="option3" name="options" value="Mathis">
                        <label for="option3">Mathis</label>
-                       <img class="radio-img" src="images/Mathis.jpg" alt="">
+                       <img class="radio-img" src="/File-Performance/images/Mathis.jpg" alt="">
                     </div>
 
                     <div>
                        <input type="radio" id="option4" name="options" value="Ava">
                        <label for="option4">Ava</label>
-                       <img class="radio-img" src="images/Ava.jpg" alt="">
+                       <img class="radio-img" src="/File-Performance/images/Ava.jpg" alt="">
                     </div>
 
                     <!-- <div>
                         <input type="radio" id="option5" name="options" value="">
                         <label for="option4">????????</label>
-                        <img class="radio-img" src="images/.jpg" alt="">
+                        <img class="radio-img" src="/File-Performance/images/.jpg" alt="">
                     </div> -->
                 </div>
                  <button id="clear-table">Clear Table</button>
