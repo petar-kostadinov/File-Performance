@@ -7,8 +7,4 @@ export function showHomeView(ctx) {
     context = ctx;
     context.showSlider();
     context.render(homeTemp());
-    
-       window.addEventListener('popstate', function () {
-    location.reload();
-});
 }
