@@ -1,7 +1,7 @@
+import page from "https://cdn.jsdelivr.net/npm/page@1.11.6/page.mjs";
+import { render } from "https://cdn.jsdelivr.net/npm/lit-html@2.7.0/lit-html.js";
 import { showHomeView } from "./view/home.js";
 import { showGeneratorView } from "./view/generator.js";
-const { html, render } = window.litHtml;
-const page = window.page;
 const root = document.getElementById('app');
 const slider = document.querySelector('.slider');
 
