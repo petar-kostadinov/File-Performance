@@ -554,6 +554,10 @@ th {
 	margin-bottom: 10px;
 }
 
+#modal-message {
+	font-size: 10px;
+}
+
 #ok-button {
 	color: #fff;
 	background-color: #007bff;
