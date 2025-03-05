@@ -417,7 +417,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	padding-top: 200px;
+	padding-top: 50px;
 	margin-left: 160px;
 }
 
@@ -449,8 +449,8 @@ body {
 	/* Празно пространство от ляво и дясно */
 	max-width: 800px;
 	/* Максимална ширина на контейнера */
-	padding-bottom: 120px;
-	padding-top: 30px;
+	padding-bottom: 10px;
+	padding-top: 5px;
 	position: static;
 }
 
@@ -481,25 +481,25 @@ th {
 }
 
 /* Стилове за бутона "Генерирай" */
-#generate-button {
-	z-index: 1;
-	width: 120px;
-	height: 40px;
-	font-size: 16px;
-	margin-left: 700px;
-	margin-right: 15px;
-	margin-bottom: 150px;
+.buttons-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	/* или конкретна ширина */
+	
 }
 
+
+#generate-button,
 #clear-table {
 	z-index: 1;
 	width: 120px;
 	height: 40px;
 	font-size: 16px;
-	margin-left: -620px;
-	margin-right: auto;
-	margin-bottom: 150px;
+
 }
+
 
 .invalid-input {
 	outline: 2px solid red;
@@ -517,7 +517,7 @@ th {
 .table h1 {
 	margin-left: 150px;
 	margin-right: -100px;
-	margin-top: 220px;
+	margin-top: 70px;
 
 	/* Разтояние между заглавието и радиобутоните */
 }
@@ -539,10 +539,14 @@ th {
 	margin: 15% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 400px;
+	width: 500px;
+	/* Ширината на алерт прозореца */
 	height: auto;
-        text-align: center;
+	/* Височината на алерт прозореца */
+	text-align: center;
+	/* Центрира съдържанието */
 	border-radius: 10px;
+	/* Заобля ъглите на основния прозорец */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -550,12 +554,9 @@ th {
 }
 
 #modal-title {
-	font-size: 15px;
-	margin-bottom: 13px;
-}
-
-#modal-message {
-	font-size: 14px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	/* Отстъп под заглавието */
 }
 
 #ok-button {
@@ -564,11 +565,23 @@ th {
 	border: none;
 	padding: 10px 20px;
 	margin-top: 20px;
+	/* Премества бутона под текста */
 	cursor: pointer;
 	font-size: 16px;
 	border-radius: 15px;
+	/* Заобля ъглите на бутона */
 }
 
 #ok-button:hover {
 	background-color: #0056b3;
+}
+
+.radio-group2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	padding-top: 300px;
+	margin-left: 120px;
+	font-weight: bold;
 }
