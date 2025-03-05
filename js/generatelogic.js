@@ -6,6 +6,7 @@ import { modMathis } from "./mathis.js";
 import { modSimon } from "./simon.js";
 var tableRows;
 var currentUrl = window.location.href;
+let allowance;
 
 export function init() {
     
@@ -59,7 +60,7 @@ function validateColumn(event) {
 
     else {
         event.target.classList.remove('invalid-input');
-        messageElement.style.display = 'none';
+        //messageElement.style.display = 'none';
     }
 }
 
@@ -127,6 +128,8 @@ function generateLogic() {
     }
 
     var selectedOption = document.querySelector('input[name="options"]:checked');
+    var selectedMachine = document.querySelector('input[name="machines"]:checked');
+
 
     if (!selectedOption) {
         modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
@@ -134,7 +137,21 @@ function generateLogic() {
         modal.style.display = 'block';
         return;
     }
+
+    if (!selectedMachine) {
+        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalMessage.textContent = 'Моля, изберете машина.';
+        modal.style.display = 'block';
+        return;
+    }
     var optionValue = selectedOption.value; // Стойността на опцията
+    var machineValue = selectedMachine.value; // На коя машина
+
+    if (machineValue === 'CNC') {
+        allowance = 4;
+    } else {
+        allowance = 0;
+    }
 
 
     var zip = new JSZip();
@@ -153,16 +170,16 @@ function generateLogic() {
         var fileContent;
         switch (optionValue) {
             case 'Simon':
-                fileContent = modSimon(partName, lValue, bValue, hValue);
+                fileContent = modSimon(partName, lValue, bValue, hValue, allowance);
                 break;
             case 'Hanna':
-                fileContent = modHanna(partName, lValue, bValue, hValue);
+                fileContent = modHanna(partName, lValue, bValue, hValue, allowance);
                 break;
             case 'Mathis':
-                fileContent = modMathis(moduleName, partName, lValue, bValue, hValue);
+                fileContent = modMathis(moduleName, partName, lValue, bValue, hValue, allowance);
                 break;
             case 'Ava':
-                fileContent = modAva(partName, lValue, bValue, hValue);
+                fileContent = modAva(partName, lValue, bValue, hValue, allowance);
                 break;
             default:
                 fileContent = modNewFront(partName, lValue, bValue, hValue);
@@ -178,8 +195,8 @@ function generateLogic() {
         saveAs(content, `${optionValue}.zip`);
     });
 
-    modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
-    modalMessage.textContent = 'Файловете ще бъдат генерирани и архивирани в ZIP формат.';
+    modalTitle.textContent = currentUrl;
+    modalMessage.textContent = 'Файловете са генерирани и архивирани в ZIP формат.';
     modal.style.display = 'block';
 }
 
