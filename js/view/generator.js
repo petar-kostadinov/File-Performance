@@ -37,7 +37,7 @@ const generatorTemp = () => html`
                     <!-- <div>
                         <input type="radio" id="option5" name="options" value="">
                         <label for="option4">????????</label>
-                        <img class="radio-img" src="images/.JPG" alt="">
+                        <img class="radio-img" src="images/.jpg" alt="">
                     </div> -->
 
                 </div>
@@ -99,3 +99,4 @@ export function showGeneratorView(ctx) {
         loadScript();
     }, 0);
 }
+
