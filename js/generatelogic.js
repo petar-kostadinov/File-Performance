@@ -46,14 +46,14 @@ function validateColumn(event) {
     
     if (inputValue.includes(',')) {
         event.target.classList.add('invalid-input');
-        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalTitle.textContent = currentUrl;
         modalMessage.textContent = `Моля заменете ','  с  '.'`;
         modal.style.display = 'block';
     }
 
     else if (isNaN(parseFloat(inputValue))) {
         event.target.classList.add('invalid-input');
-        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalTitle.textContent = currentUrl;
         modalMessage.textContent = 'Невалидна стойност за клетка. Моля, въведете число.';
         modal.style.display = 'block';
     }
@@ -121,7 +121,7 @@ function generateLogic() {
     }
     
     if (!tableRows || tableRows.length === 0) {
-        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalTitle.textContent = currentUrl;
         modalMessage.textContent = 'Таблицата е празна.';
         modal.style.display = 'block';
         return;
@@ -132,14 +132,14 @@ function generateLogic() {
 
 
     if (!selectedOption) {
-        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalTitle.textContent = currentUrl;
         modalMessage.textContent = 'Моля, изберете опция.';
         modal.style.display = 'block';
         return;
     }
 
     if (!selectedMachine) {
-        modalTitle.textContent = (`${currentUrl} ви изпраща съобщение:`);
+        modalTitle.textContent = currentUrl;
         modalMessage.textContent = 'Моля, изберете машина.';
         modal.style.display = 'block';
         return;
