@@ -47,7 +47,7 @@ function validateColumn(event) {
     if (inputValue.includes(',')) {
         event.target.classList.add('invalid-input');
         modalTitle.textContent = currentUrl;
-        modalMessage.textContent = `Моля заменете ','  с  '.'`;
+        modalMessage.textContent = `Моля заменете запетаята с точка`;
         modal.style.display = 'block';
     }
 
@@ -144,8 +144,8 @@ function generateLogic() {
         modal.style.display = 'block';
         return;
     }
-    var optionValue = selectedOption.value; // Стойността на опцията
-    var machineValue = selectedMachine.value; // На коя машина
+    var optionValue = selectedOption.value; 
+    var machineValue = selectedMachine.value; 
 
     if (machineValue === 'CNC') {
         allowance = 4;
@@ -157,11 +157,11 @@ function generateLogic() {
     var zip = new JSZip();
 
     tableRows.forEach(function (row) {
-        var moduleName = row.children[0].textContent.trim(); // Името на модула от колона 1
-        var partName = row.children[1].textContent.trim(); // Името на частта от колона 2
-        var lValue = row.children[2].textContent.trim(); // Стойността на L от колона 3
-        var bValue = row.children[3].textContent.trim(); // Стойността на B от колона 4
-        var hValue = row.children[4].textContent.trim(); // Стойността на H от колона 5
+        var moduleName = row.children[0].textContent.trim(); 
+        var partName = row.children[1].textContent.trim(); 
+        var lValue = row.children[2].textContent.trim(); 
+        var bValue = row.children[3].textContent.trim(); 
+        var hValue = row.children[4].textContent.trim(); 
 
         if (moduleName === '' && partName === '' && lValue === '' && bValue === '' && hValue === '') {
             return;
