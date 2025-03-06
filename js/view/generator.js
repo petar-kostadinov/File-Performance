@@ -13,7 +13,7 @@ const generatorTemp = () => html`
                     <div>
                       <input type="radio" id="option1" name="options" value="Simon">
                       <label for="option1"><img src="" alt="">Simon</label>
-                      <img class="radio-img" src="images/Simon.jpg" alt="">
+                      <img class="radio-img" src="File-Performance/images/Simon.jpg" alt="">
                     </div>
 
                     <div>
