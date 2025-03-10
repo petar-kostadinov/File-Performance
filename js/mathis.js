@@ -16,6 +16,7 @@ export function modMathis(moduleName, partName, lValue, bValue, hValue, allowanc
     const cuttingTool = "E006";
     const cutDepth = dimZ + 0.2;
     const minArea = 117000;
+    let message = "";
     let text = `SetMachiningParameters(${!allowance ? '"AD", 1, 10, 0, false' : '"IJ", 1, 12, 0, false'});
 CreatePolyline("${name}", 4, 0);
 AddSegmentToPolyline(${(dimX + allowance) - 4}, 0);
@@ -47,7 +48,7 @@ CreateContour("Perimeter Routing", ${dimX * dimY <= minArea ? (cutDepth - 0.7).t
 ResetPneumaticHood();
 ResetApproachStrategy();
 ResetRetractStrategy();`
-   text = text.split("\n").filter(line => line.trim() !== "").join("\n");
+    text = text.split("\n").filter(line => line.trim() !== "").join("\n");
 
     if (dimX > 296 && dimY > 296 && !name.includes("Blind_Part")) {
         if (dimY === 297) {
@@ -72,10 +73,14 @@ ResetRetractStrategy();`
             text += mathisB797(lValue, bValue, difference);
             return text;
         } else {
-            alert(`На детайла ${partName} от модул ${moduleName} няма да бъде направена декоративната фрезовка.`)
+            message = `!!! На детайла ${partName} от модул ${moduleName} не може да бъде направена декоративната фрезовка. !!!`
         }
     }
-    return text;
+    return {
+        text,
+        message
+    };
+
 }
 
 
